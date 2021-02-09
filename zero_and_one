@@ -1,0 +1,35 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void solvee(int n,int zero,int one,string op){
+    if (n==0){
+        cout<<op<<" ";
+        return;
+    }
+    if (one<=n){
+        string op1=op;
+        op1.push_back('1');
+        solvee(n-1,zero,one+1,op1);
+        
+    }
+    if (zero<one){
+        string op2=op;
+        op2.push_back('0');
+        solvee(n-1,zero+1,one,op2);
+    }
+    return;
+        
+    
+}
+
+int main(){
+    
+    int n=4;
+    string op="";
+    int zero=0;
+    int one=0;
+    solvee(n,zero,one,op);
+    
+    return 0;
+    
+}
